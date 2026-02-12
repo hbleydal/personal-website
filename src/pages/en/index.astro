@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<BaseLayout title="Home" lang="en">
+  <Header lang="en" />
+
+  <main class="container">
+
+    <!-- Level 1 -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1 class="h1" style="margin-top:0;">Hélène Bley Dalouman</h1>
+        <p class="small" style="font-size:2rem;">
+          PhD in Geography
+        </p>
+      </div>
+
+      <div class="photo-wrapper">
+        <img src="/home_profile_picture.jpg" alt="Portrait of Hélène Bley Dalouman" />
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Level 2 -->
+    <section class="card about-preview">
+      
+      <p>
+        I hold a PhD in Geography with a specialization in Geomatics.
+        My research focuses on remote sensing and spatial analysis approaches
+        aimed at mapping and monitoring the dynamics of forested and non-forested environments.
+        My work particularly explores their characterization in a context of
+        (i) intensifying climate change and anthropogenic pressures,
+        and (ii) the growing availability of Earth observation data.
+        Within this framework, I develop methodological approaches to detect
+        and describe land cover classes across multiple spatial scales.
+        I place strong emphasis on producing generalizable models and reliable, interpretable cartographic outputs.
+      </p>
+
+      <div class="about-button">
+        <a class="pill" href="/en/about">Learn more</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <Footer lang="en" />
+</BaseLayout>

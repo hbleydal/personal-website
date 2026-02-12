@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+<BaseLayout title="Travaux" lang="fr">
+  <Header lang="fr" />
+
+  <main class="container" style="max-width:900px;">
+
+    <section class="work-item">
+      <details>
+        <summary class="work-title">
+          Détection et description des changements d’occupation du sol à partir d’une approche hybride 
+          combinant le potentiel de la télédétection satellitaire et du web sémantique.
+        </summary>
+
+        <div class="work-content">
+          <p>
+            Ce travail s'incrit dans le 
+            <a href="https://lig-stories.imag.fr/delta/" target="_blank" rel="noopener noreferrer">
+            projet DELTA (Describing the Evolution of the Landcover Through semantic Annotation of remote sensing data)</a> 
+            qui vise à détecter et à décrire les changements dans des séries temporelles de données satellitaires, via un vocabulaire
+            ouvert et partagé dans le Web des données ouvertes et liées (LinkedOpen Data cloud (LOD cloud) en anglais).
+          </p>
+
+          <p>
+            Mes <a href="https://hal.science/hal-05331920/" target="_blank" rel="noopener noreferrer">travaux</a> ont porté sur : 
+            (1) la formalisation de séries temporelles d’indices satellitaires ;
+            (2) la conception d’un cadre conceptuel permettant de relier le contexte spatio-temporel et les choix méthodologiques aux concepts mobilisables pour décrire le changement ; 
+            (3) la structuration d’un vocabulaire dédié à la description des multiples facettes du changement (apparition, disparition, variation, transition, changement spatial, décalage temporel).
+          </p>
+
+          <p>
+            Plus particulièrement, j'ai réalisé un cas d'étude sur un alpage du massif du Vercors (2018–2023) 
+            pour montrer comment un vocabulaire structuré permet de décrire les multiples facettes des changements observés dans les données Sentinel-2 (article en cours de rédaction).
+            Ce travail représente en outre, une étape vers l’implémentation dans un graphe de connaissances.
+          </p>
+
+          <figure class="work-figure">
+            <img 
+              src="/work_delta.jpg" 
+              alt="Alpage de Darbounouse (mai 2025)"
+              loading="lazy"
+            />
+            <figcaption>
+              Alpage de Darbounouse (mai 2025)
+            </figcaption>
+          </figure>
+
+        </div>
+        
+      </details>
+    </section>
+
+    <section class="work-item">
+      <details>
+        <summary class="work-title">
+          Approches spatiales de caractérisation de gisements forestiers en milieu tropical contraint. 
+          Application à la valorisation en bois énergie d’Acacia mearnsii à La Réunion.
+        </summary>
+
+        <div class="work-content">
+
+          <p>
+            La structuration d'une filière Bois Énergie est l'une des principales stratégies de l'Ile de la Réunion dans le cadre de sa transition énergétique et écologique.
+            Dans ce contexte, l’Acacia mearnsii a été identifié comme l’un des principaux gisements mobilisables. 
+            C'est une espèce exotique envahissante formant de vastes peuplements inégalement répartis sur le territoire, 
+            et son exploitation reste complexe en raison des contraintes topographiques et logistiques. 
+            L'objectif principal de ma <a href="https://theses.fr/2023UMONG048" target="_blank" rel="noopener noreferrer">thèse</a>  
+            était donc de construire un cadre méthodologique permettant d’évaluer la ressource forestière exploitable 
+            et d’analyser les performances potentielles d’une filière bois énergie associée.
+          </p>
+
+          <figure class="work-figure work-figure-grid">
+
+            <div class="work-figure-item">
+              <img 
+                src="/work_reunion.jpg" 
+                alt="Immersion dans la forêt des Hauts-Sous-Le-Vent (La Réunion)"
+                loading="lazy"
+              />
+              <figcaption>
+                Immersion dans la forêt des Hauts-Sous-Le-Vent (La Réunion). 
+                Au premier plan : mélange de fourrés ; au second plan : peuplements mélangés d'Acacia mearnsii et d'Acacia heterophylla (aussi appelé Tamarin).
+              </figcaption>
+            </div>
+
+            <div class="work-figure-item">
+              <img 
+                src="/work_acacia.jpg" 
+                alt="Acacia mearnsii en fleur. La photographie a été prise en octobre 2020 dans la forêt des Hauts-sous-le-Vent (La Réunion)"
+                loading="lazy"
+              />
+              <figcaption>
+                Acacia mearnsii en fleur. La photographie a été prise en octobre 2020 dans la forêt des Hauts-sous-le-Vent (La Réunion).
+              </figcaption>
+            </div>
+
+          </figure>
+
+
+          <p>
+            Je me suis d'abord intéressée à la 
+            <a href="https://hal.science/hal-05246175/" target="_blank" rel="noopener noreferrer">caractérisation d’Acacia mearnsii</a>, 
+            en utilisant une image satellitaire monodate à très haute résolution spatiale. 
+            Pour cela, j'ai développé un modèle de classification supervisée afin de discriminer les principaux peuplements forestiers avec une approche au pixel puis à l'objet. 
+            L’évaluation des performances de ces modèles a montré des résultats satisfaisants pour les deux approches et l'ensemble des classes étudiées. Cela m'a permis de produire des 
+            <a href="https://www.sidalc.net/search/Record/dat-cirad-10.18167DVN1LXXO9Y/Description" target="_blank" rel="noopener noreferrer">
+            cartographies fiables des principaux peuplements forestiers du massif des Hauts Sous-le-Vent</a>.
+          </p>
+          
+          <p>
+            Pour approndir la caractérisation du gisement, je me suis ensuite intéressée aux approches de modélisation des contraintes d'exploitabilité. 
+            Mes recherches m'ont conduit à mettre en place un 
+            <a href="https://www.mdpi.com/1999-4907/14/10/2030" target="_blank" rel="noopener noreferrer">
+            modèle d’évaluation du gisement exploitable</a>
+            mobilisant des données de télédétection de très haute résolution spatiale
+            ainsi que des données géographiques variées telles que la pente ou la distance aux pistes et routes forestières.
+            Les résultats ont contribué à localiser et caractériser le gisement selon trois éléments participant à la gestion de peuplements forestiers : 
+            la praticabilité, l'accessibilité et l'exploitabilité.
+          </p>
+          
+          <p>
+            Enfin, l'objectif d'évaluation des performances d'une chaîne d’approvisionnement m'a conduit à me focaliser sur la question de l'impact environnemental.  
+            J’ai développé un modèle exploratoire sous le langage 
+            <a href="https://ocelet.fr/ocws/index.php?lang=en" target="_blank" rel="noopener noreferrer">
+            OCELET</a>
+            afin de simuler 
+            et d’analyser les itinéraires d’approvisionnement d'un gisement entre une parcelle et une centrale thermique. 
+            Ce modèle fournit une première estimation des impacts environnementaux de la filière, notamment en termes d’émissions de gaz à effet de serre.
+          </p>
+
+
+
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <Footer lang="fr" />
+</BaseLayout>

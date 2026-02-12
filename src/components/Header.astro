@@ -1,0 +1,50 @@
+---
+import LangSwitch from "./LangSwitch.astro";
+
+const { lang = "fr" } = Astro.props;
+const prefix = lang === "fr" ? "/fr" : "/en";
+
+const nav =
+  lang === "fr"
+    ? [
+        ["Accueil", `${prefix}/`],
+        ["À propos", `${prefix}/a-propos`],
+        ["Curriculum Vitae", `${prefix}/cv`],
+        ["Travaux", `${prefix}/travaux`],
+      ]
+    : [
+        ["Home", `${prefix}/`],
+        ["About", `${prefix}/about`],
+        ["Curriculum Vitae", `${prefix}/resume`],
+        ["Work", `${prefix}/work`],
+      ];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!-- BARRE STICKY (tout en haut) -->
+<div class="header-nav" role="navigation" aria-label="Navigation principale">
+  <div class="container">
+    <div class="header-bar">
+      <div class="brand">
+        <span class="brand-name">HBD</span>
+      </div>
+
+      <nav class="nav" aria-label="Menu">
+        {nav.map(([label, href]) => (
+          <a class={`nav-link ${currentPath === href ? "active" : ""}`} href={href}>
+            {label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="right">
+        <LangSwitch />
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header-hero" aria-hidden="true">
+  <div class="header-image"></div>
+</header>

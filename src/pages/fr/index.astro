@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+<BaseLayout title="Accueil" lang="fr">
+  <Header lang="fr" />
+
+  <main class="container">
+
+    <!-- Niveau 1 -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1 class="h1" style="margin-top:0;">Hélène Bley Dalouman</h1>
+        <p class="small" style="font-size:2rem;">
+          Docteure en géographie
+        </p>
+      </div>
+
+      <div class="photo-wrapper">
+        <img src="/home_profile_picture.jpg" alt="Portrait de hbleydal" />
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Niveau 2 -->
+    <section class="card about-preview">
+      
+      <p>Docteure en géographie et spécialisée en géomatique, je m’intéresse particulièrement aux approches de télédétection et d’analyse spatiale 
+      qui permettent de cartographier et de suivre l’évolution des milieux forestiers et non forestiers. 
+      Mes travaux de recherche portent plus spécifiquement sur leur caractérisation dans un contexte 
+      (i) d’intensification du changement climatique et des pressions anthropiques, 
+      ainsi que (ii) de multiplication des données d’observation de la terre. 
+      Dans ce cadre, je développe des approches méthodologiques pour détecter et décrire ces classes d’occupation du sol à des échelles spatiales variées. 
+      J’accorde notamment une attention particulière à produire des modèles généralisables et des cartographies fiables et interprétables.</p>
+
+      <div class="about-button">
+        <a class="pill" href="/fr/a-propos">En savoir plus</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang="fr" />
+</BaseLayout>

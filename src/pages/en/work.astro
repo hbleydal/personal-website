@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+<BaseLayout title="Work" lang="en">
+  <Header lang="en" />
+
+  <main class="container" style="max-width:900px;">
+
+    <section class="work-item">
+      <details>
+        <summary class="work-title">
+          Detecting and describing land-cover change through a hybrid approach 
+          combining satellite remote sensing and the Semantic Web.
+        </summary>
+
+        <div class="work-content">
+          <p>
+            This work is part of the 
+            <a href="https://lig-stories.imag.fr/delta/" target="_blank" rel="noopener noreferrer">
+            DELTA project (Describing the Evolution of the Landcover Through Semantic Annotation of Remote Sensing Data)</a>, 
+            which aims to detect and describe changes in satellite time series data using an open and shared vocabulary 
+            within the Linked Open Data (LOD) cloud.
+          </p>
+
+          <p>
+            My <a href="https://hal.science/hal-05331920/" target="_blank" rel="noopener noreferrer">research</a> focused on:
+            (1) the formalization of satellite-derived time series indices;
+            (2) the design of a conceptual framework linking spatio-temporal context and methodological choices to the concepts used to describe change;
+            (3) the structuring of a vocabulary dedicated to capturing the multiple facets of change 
+            (appearance, disappearance, variation, transition, spatial dynamics, and temporal shifts).
+          </p>
+
+          <p>
+            More specifically, I conducted a case study in an alpine pasture of the Vercors massif (2018–2023) 
+            to demonstrate how a structured vocabulary can describe the multiple dimensions of change observed in Sentinel-2 data 
+            (article in preparation).  
+            This work also represents a step toward implementation within a knowledge graph framework.
+          </p>
+
+          <figure class="work-figure">
+            <img 
+              src="/work_delta.jpg" 
+              alt="Darbounouse alpine pasture (May 2025)"
+              loading="lazy"
+            />
+            <figcaption>
+              Darbounouse alpine pasture (May 2025).
+            </figcaption>
+          </figure>
+
+        </div>
+        
+      </details>
+    </section>
+
+    <section class="work-item">
+      <details>
+        <summary class="work-title">
+          Spatial approaches for characterizing forest biomass resources in constrained tropical environments. 
+          Application to energy valorization of Acacia mearnsii in Réunion Island.
+        </summary>
+
+        <div class="work-content">
+
+          <p>
+            Developing a Wood Energy sector is one of the key strategies of Réunion Island 
+            in its ecological and energy transition. In this context, <em>Acacia mearnsii</em> was identified as one of the main mobilizable biomass resources. 
+            This invasive exotic species forms extensive stands unevenly distributed across the island, 
+            and its exploitation remains challenging due to strong topographic and logistical constraints.  
+            The main objective of my 
+            <a href="https://theses.fr/2023UMONG048" target="_blank" rel="noopener noreferrer">PhD thesis</a> 
+            was therefore to build a methodological framework to assess the exploitable forest resource 
+            and evaluate the potential performance of an associated wood energy supply chain.
+          </p>
+
+          <figure class="work-figure work-figure-grid">
+
+            <div class="work-figure-item">
+              <img 
+                src="/work_reunion.jpg" 
+                alt="Field immersion in the Hauts-Sous-Le-Vent forest (Réunion Island)"
+                loading="lazy"
+              />
+              <figcaption>
+                Field immersion in the Hauts-Sous-Le-Vent forest (Réunion Island).  
+                Foreground: mixed shrub vegetation; background: mixed stands of <em>Acacia mearnsii</em> and <em>Acacia heterophylla</em> (Tamarin).
+              </figcaption>
+            </div>
+
+            <div class="work-figure-item">
+              <img 
+                src="/work_acacia.jpg" 
+                alt="Acacia mearnsii in bloom, October 2020, Hauts-Sous-Le-Vent forest (Réunion Island)"
+                loading="lazy"
+              />
+              <figcaption>
+                <em>Acacia mearnsii</em> in bloom. Photograph taken in October 2020 in the Hauts-Sous-Le-Vent forest (Réunion Island).
+              </figcaption>
+            </div>
+
+          </figure>
+
+          <p>
+            I first focused on the 
+            <a href="https://hal.science/hal-05246175/" target="_blank" rel="noopener noreferrer">characterization of <em>Acacia mearnsii</em></a> 
+            using a mono-date very high spatial resolution satellite image.  
+            I developed a supervised classification model to discriminate major forest stands using both pixel-based and object-based approaches.  
+            Model performance assessment showed satisfactory results across both approaches and all studied classes.  
+            This allowed me to produce 
+            <a href="https://www.sidalc.net/search/Record/dat-cirad-10.18167DVN1LXXO9Y/Description" target="_blank" rel="noopener noreferrer">
+            reliable maps of the main forest stands of the Hauts Sous-le-Vent massif</a>.
+          </p>
+          
+          <p>
+            To further refine resource characterization, I then worked on modeling exploitation constraints.  
+            I developed a 
+            <a href="https://www.mdpi.com/1999-4907/14/10/2030" target="_blank" rel="noopener noreferrer">
+            model for assessing exploitable biomass</a> 
+            combining very high spatial resolution remote sensing data with geographic variables such as slope and distance to forest tracks and roads.  
+            The results helped locate and characterize the resource according to three key forest management dimensions: 
+            trafficability, accessibility, and exploitability.
+          </p>
+          
+          <p>
+            Finally, in order to evaluate supply chain performance, I addressed the question of environmental impact.  
+            I developed an exploratory model using the 
+            <a href="https://ocelet.fr/ocws/index.php?lang=en" target="_blank" rel="noopener noreferrer">
+            OCELET</a> 
+            language to simulate and analyze biomass transport routes between forest parcels and a thermal power plant.  
+            This model provided an initial estimation of environmental impacts, particularly in terms of greenhouse gas emissions.
+          </p>
+
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <Footer lang="en" />
+</BaseLayout>

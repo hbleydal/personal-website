@@ -1,0 +1,45 @@
+---
+const path = Astro.url.pathname;
+
+// Normalise (sans slash final, sauf racine)
+const normalized = path !== "/" ? path.replace(/\/+$/, "") : "/";
+
+// Mapping FR <-> EN
+const map = {
+  "/fr": "/en",
+  "/fr/": "/en/",
+  "/fr/a-propos": "/en/about",
+  "/fr/cv": "/en/resume",
+  "/fr/travaux": "/en/work",
+  "/fr/": "/en/",
+
+  "/en": "/fr",
+  "/en/": "/fr/",
+  "/en/about": "/fr/a-propos",
+  "/en/resume": "/fr/cv",
+  "/en/work": "/fr/travaux",
+};
+
+// Langue courante
+const isEn = normalized.startsWith("/en");
+const label = isEn ? "Français" : "English";
+
+// Cible (fallback intelligent si page non mappée)
+let target = map[normalized];
+
+if (!target) {
+  // fallback : on bascule juste le préfixe /fr <-> /en
+  if (normalized.startsWith("/fr")) target = normalized.replace(/^\/fr/, "/en");
+  else if (normalized.startsWith("/en")) target = normalized.replace(/^\/en/, "/fr");
+  else target = "/fr";
+}
+
+// Ajoute slash final uniquement pour les home (optionnel)
+if (target === "/fr") target = "/fr/";
+if (target === "/en") target = "/en/";
+---
+
+<a class="lang-switch" href={target}>
+  {label}
+</a>
+

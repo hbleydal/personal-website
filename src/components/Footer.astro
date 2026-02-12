@@ -1,0 +1,50 @@
+---
+const { lang = "fr" } = Astro.props;
+
+const year = new Date().getFullYear();
+
+const labels =
+  lang === "fr"
+    ? { 
+        mail: "Email", 
+        github: "GitHub", 
+        rg: "ResearchGate", 
+        li: "LinkedIn",
+        rights: "Tous droits réservés"
+      }
+    : { 
+        mail: "Email", 
+        github: "GitHub", 
+        rg: "ResearchGate", 
+        li: "LinkedIn",
+        rights: "All rights reserved"
+      };
+
+const email = "bley.helene@hotmail.fr";
+const github = "https://github.com/hbleydal";
+const researchgate = "https://www.researchgate.net/profile/Helene-Bley-Dalouman-2?ev=prf_overview";
+const linkedin = "http://www.linkedin.com/in/hélène-bley-dalouman-87424819a";
+---
+
+<footer class="footer-band">
+  <div class="container footer-inner">
+
+    <a class="nav-link" href={`mailto:${email}`}>{labels.mail}</a>
+    <span class="footer-sep"></span>
+
+    <a class="nav-link" href={github} target="_blank" rel="noreferrer">{labels.github}</a>
+    <span class="footer-sep"></span>
+
+    <a class="nav-link" href={researchgate} target="_blank" rel="noreferrer">{labels.rg}</a>
+    <span class="footer-sep"></span>
+
+    <a class="nav-link" href={linkedin} target="_blank" rel="noreferrer">{labels.li}</a>
+
+    <span class="footer-sep"></span>
+
+    <span class="footer-copy">
+      © {year} Hélène Bley Dalouman — {labels.rights}
+    </span>
+
+  </div>
+</footer>
