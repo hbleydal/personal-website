@@ -2,7 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
 ---
+
 <BaseLayout title="A propos" lang="fr">
   <Header lang="fr" />
 
@@ -18,22 +23,36 @@ import Footer from "../../components/Footer.astro";
       J’accorde notamment une attention particulière à produire des modèles généralisables et des cartographies fiables et interprétables.
     </p>
 
-    <p>Mes <a href="/fr/travaux"><strong>principales contributions</strong></a> ont notamment porté sur :</p>
+    <p>
+      Mes <a href={`${base}fr/travaux/`}><strong>principales contributions</strong></a> ont notamment porté sur :
+    </p>
 
     <ul>
-      <li>La caractérisation de peuplements forestiers exotiques sur un territoire insulaire et escarpé comme l’île de La Réunion, à l’aide d’algorithmes issus du machine learning (e.g., Random Forest, K-means) ou de l’analyse de graphes (e.g., Dijkstra).</li>
-      <li>La création d’un vocabulaire sémantique pour harmoniser les descriptions des changements d’occupation du sol mis en évidence par les protocoles de détection de changement appliqués.</li>
+      <li>
+        La caractérisation de peuplements forestiers exotiques sur un territoire insulaire et escarpé comme l’île de La Réunion,
+        à l’aide d’algorithmes issus du machine learning (e.g., Random Forest, K-means) ou de l’analyse de graphes (e.g., Dijkstra).
+      </li>
+      <li>
+        La création d’un vocabulaire sémantique pour harmoniser les descriptions des changements d’occupation du sol
+        mis en évidence par les protocoles de détection de changement appliqués.
+      </li>
     </ul>
 
-    <p>Ces résultats ont d’ailleurs été partagés au travers de publications et de communications scientifiques, en France et à l’international.</p>
+    <p>
+      Ces résultats ont d’ailleurs été partagés au travers de publications et de communications scientifiques,
+      en France et à l’international.
+    </p>
 
     <p>
-      J’ai également été chargée de travaux dirigés (TD), notamment pour initier les étudiants de L3 et M1 à la résolution de problématiques spatiales avec des SIG comme QGIS.
-      L’objectif de ces séances étant à la fois de les mener à prendre en main ces outils, mais aussi de les rendre autonomes pour réaliser des tâches telles que
+      J’ai également été chargée de travaux dirigés (TD), notamment pour initier les étudiants de L3 et M1
+      à la résolution de problématiques spatiales avec des SIG comme QGIS.
+      L’objectif de ces séances étant à la fois de les mener à prendre en main ces outils,
+      mais aussi de les rendre autonomes pour réaliser des tâches telles que
       (i) l’acquisition et la structuration des données,
       (ii) la réalisation de géo-traitements et de requêtes spatiales ou attributaires,
       et (iii) enfin la production de cartographies et d’analyses spatiales problématisées.
     </p>
+
   </main>
 
   <Footer lang="fr" />

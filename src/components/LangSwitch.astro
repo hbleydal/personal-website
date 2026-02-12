@@ -1,8 +1,17 @@
 ---
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+
 const path = Astro.url.pathname;
 
+// On enlève le base du path courant pour travailler proprement
+const cleanPath = path.startsWith(base)
+  ? path.replace(base.slice(0, -1), "")
+  : path;
+
 // Normalise (sans slash final, sauf racine)
-const normalized = path !== "/" ? path.replace(/\/+$/, "") : "/";
+const normalized = cleanPath !== "/" ? cleanPath.replace(/\/+$/, "") : "/";
 
 // Mapping FR <-> EN
 const map = {
@@ -11,7 +20,6 @@ const map = {
   "/fr/a-propos": "/en/about",
   "/fr/cv": "/en/resume",
   "/fr/travaux": "/en/work",
-  "/fr/": "/en/",
 
   "/en": "/fr",
   "/en/": "/fr/",
@@ -28,18 +36,23 @@ const label = isEn ? "Français" : "English";
 let target = map[normalized];
 
 if (!target) {
-  // fallback : on bascule juste le préfixe /fr <-> /en
-  if (normalized.startsWith("/fr")) target = normalized.replace(/^\/fr/, "/en");
-  else if (normalized.startsWith("/en")) target = normalized.replace(/^\/en/, "/fr");
-  else target = "/fr";
+  if (normalized.startsWith("/fr")) {
+    target = normalized.replace(/^\/fr/, "/en");
+  } else if (normalized.startsWith("/en")) {
+    target = normalized.replace(/^\/en/, "/fr");
+  } else {
+    target = "/fr";
+  }
 }
 
-// Ajoute slash final uniquement pour les home (optionnel)
+// Ajoute slash final uniquement pour les home
 if (target === "/fr") target = "/fr/";
 if (target === "/en") target = "/en/";
+
+// 🔥 Ajoute le base pour GitHub Pages
+const finalTarget = `${base}${target.replace(/^\//, "")}`;
 ---
 
-<a class="lang-switch" href={target}>
+<a class="lang-switch" href={finalTarget}>
   {label}
 </a>
-

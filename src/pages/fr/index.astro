@@ -2,7 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
 ---
+
 <BaseLayout title="Accueil" lang="fr">
   <Header lang="fr" />
 
@@ -18,7 +23,10 @@ import Footer from "../../components/Footer.astro";
       </div>
 
       <div class="photo-wrapper">
-        <img src="/home_profile_picture.jpg" alt="Portrait de hbleydal" />
+        <img 
+          src={`${base}home_profile_picture.jpg`} 
+          alt="Portrait de Hélène Bley Dalouman" 
+        />
       </div>
     </section>
 
@@ -27,16 +35,20 @@ import Footer from "../../components/Footer.astro";
     <!-- Niveau 2 -->
     <section class="card about-preview">
       
-      <p>Docteure en géographie et spécialisée en géomatique, je m’intéresse particulièrement aux approches de télédétection et d’analyse spatiale 
-      qui permettent de cartographier et de suivre l’évolution des milieux forestiers et non forestiers. 
-      Mes travaux de recherche portent plus spécifiquement sur leur caractérisation dans un contexte 
-      (i) d’intensification du changement climatique et des pressions anthropiques, 
-      ainsi que (ii) de multiplication des données d’observation de la terre. 
-      Dans ce cadre, je développe des approches méthodologiques pour détecter et décrire ces classes d’occupation du sol à des échelles spatiales variées. 
-      J’accorde notamment une attention particulière à produire des modèles généralisables et des cartographies fiables et interprétables.</p>
+      <p>
+        Docteure en géographie et spécialisée en géomatique, je m’intéresse particulièrement aux approches de télédétection et d’analyse spatiale 
+        qui permettent de cartographier et de suivre l’évolution des milieux forestiers et non forestiers. 
+        Mes travaux de recherche portent plus spécifiquement sur leur caractérisation dans un contexte 
+        (i) d’intensification du changement climatique et des pressions anthropiques, 
+        ainsi que (ii) de multiplication des données d’observation de la terre. 
+        Dans ce cadre, je développe des approches méthodologiques pour détecter et décrire ces classes d’occupation du sol à des échelles spatiales variées. 
+        J’accorde notamment une attention particulière à produire des modèles généralisables et des cartographies fiables et interprétables.
+      </p>
 
       <div class="about-button">
-        <a class="pill" href="/fr/a-propos">En savoir plus</a>
+        <a class="pill" href={`${base}fr/a-propos/`}>
+          En savoir plus
+        </a>
       </div>
     </section>
 

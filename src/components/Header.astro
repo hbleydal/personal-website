@@ -1,25 +1,35 @@
 ---
 import LangSwitch from "./LangSwitch.astro";
 
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+
 const { lang = "fr" } = Astro.props;
-const prefix = lang === "fr" ? "/fr" : "/en";
+const prefix = lang === "fr" ? "fr" : "en";
 
 const nav =
   lang === "fr"
     ? [
-        ["Accueil", `${prefix}/`],
-        ["À propos", `${prefix}/a-propos`],
-        ["Curriculum Vitae", `${prefix}/cv`],
-        ["Travaux", `${prefix}/travaux`],
+        ["Accueil", `${base}${prefix}/`],
+        ["À propos", `${base}${prefix}/a-propos/`],
+        ["Curriculum Vitae", `${base}${prefix}/cv/`],
+        ["Travaux", `${base}${prefix}/travaux/`],
       ]
     : [
-        ["Home", `${prefix}/`],
-        ["About", `${prefix}/about`],
-        ["Curriculum Vitae", `${prefix}/resume`],
-        ["Work", `${prefix}/work`],
+        ["Home", `${base}${prefix}/`],
+        ["About", `${base}${prefix}/about/`],
+        ["Curriculum Vitae", `${base}${prefix}/resume/`],
+        ["Work", `${base}${prefix}/work/`],
       ];
 
-const currentPath = Astro.url.pathname;
+// Astro.url.pathname inclut le base (/personal-website/...)
+const currentPathRaw = Astro.url.pathname;
+
+// Normalisation (sans slash final, sauf racine)
+const normalize = (p) => (p !== "/" ? p.replace(/\/+$/, "") : "/");
+
+const currentPath = normalize(currentPathRaw);
 ---
 
 <!-- BARRE STICKY (tout en haut) -->
@@ -32,7 +42,10 @@ const currentPath = Astro.url.pathname;
 
       <nav class="nav" aria-label="Menu">
         {nav.map(([label, href]) => (
-          <a class={`nav-link ${currentPath === href ? "active" : ""}`} href={href}>
+          <a
+            class={`nav-link ${currentPath === normalize(href) ? "active" : ""}`}
+            href={href}
+          >
             {label}
           </a>
         ))}
