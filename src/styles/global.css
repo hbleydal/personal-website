@@ -1,16 +1,15 @@
 :root{
   /* Palette éditoriale (chaude) */
-  --bg: #fbf7f0;          /* crème */
-  --paper: #ffffff;       /* papier */
-  --text: #1f1a17;        /* brun-noir */
-  --muted: #5f5750;       /* gris chaud */
+  --bg: #fbf7f0;
+  --paper: #ffffff;
+  --text: #1f1a17;
+  --muted: #5f5750;
   --border: rgba(31,26,23,0.14);
 
-  --accent: #7b2c2c;      /* bordeaux */
-  --accent2: #2f6f55;     /* vert profond */
-  --accentSoft: rgba(123,44,44,0.10);
+  --accent: #7b2c2c;
+  --accent2: #2f6f55;
 
-  --link: #0b6b3a;        /* vert profond naturel */
+  --link: #0b6b3a;
   --linkHover: #084c2a;
 
   --max: 1040px;
@@ -49,12 +48,13 @@ body{
 /* Liens */
 a{
   color: var(--link);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  transition: color .2s ease, border-color .2s ease;
 }
 a:hover{
   color: var(--linkHover);
-  text-decoration-thickness: 2px;
+  border-bottom-color: currentColor;
 }
 
 /* Layout */
@@ -70,7 +70,7 @@ hr{
   margin: 26px 0;
 }
 
-/* Card = papier */
+/* Card */
 .card{
   background: var(--paper);
   border: 1px solid var(--border);
@@ -79,14 +79,14 @@ hr{
   box-shadow: var(--shadowSoft);
 }
 
-/* Grilles utilitaires */
+/* Grilles */
 .grid{ display: grid; gap: 18px; }
 .grid-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 860px){
   .grid-2{ grid-template-columns: 1fr; }
 }
 
-/* Pills (CTA) */
+/* Pills */
 .pill{
   padding: 10px 18px;
   border-radius: 999px;
@@ -97,18 +97,12 @@ hr{
   transition: all .25s ease;
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
-
 .pill:hover{
   background: #096a09;
   color: white;
   border-color: #096a09;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
-
-/* Listes */
-ul{ padding-left: 1.1rem; margin: 0.6rem 0; }
-li{ margin: 0.35rem 0; }
 
 /* Hero */
 .hero{
@@ -144,19 +138,6 @@ li{ margin: 0.35rem 0; }
   .photo-wrapper{ justify-content: center; }
 }
 
-/* Boutons centrés */
-.about-button{
-  margin-top: 22px;
-  display:flex;
-  justify-content: center;
-}
-.download-section{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding: 18px;
-}
-
 /* PDF */
 .pdf-frame{
   margin-top: 10px;
@@ -171,37 +152,20 @@ li{ margin: 0.35rem 0; }
   border: 0;
 }
 
-/* Onglets */
-.nav-link{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  padding: 6px 0;
-  border-bottom: 1px solid transparent;
-  transition: border-color .2s ease;
-}
-.nav-link:hover{ border-bottom: 1px solid var(--accent); }
-.nav-link.active{ border-bottom: 2px solid var(--accent); }
-
-/* Bannière en bloc */
+/* Header hero */
 .header-hero{
   position: relative;
-  height: 320px;         /* <-- fixe, donc "bloc" */
+  height: 320px;
   overflow: hidden;
 }
 
-/* Image en fond */
 .header-image{
   position: absolute;
   inset: 0;
-  background-image: url("/header.jpg");
   background-size: cover;
   background-position: center 58%;
 }
 
-/* voile */
 .header-hero::before{
   content: "";
   position: absolute;
@@ -210,29 +174,17 @@ li{ margin: 0.35rem 0; }
   pointer-events: none;
 }
 
-
-/* barre sticky (hors du header dans le HTML) */
+/* Sticky nav */
 .header-nav{
-  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
   z-index: 1000;
-
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  background: rgba(251, 247, 240, 0.95); /* beige */
-  border-bottom: 1px solid rgba(31,26,23,0.14);
+  background: rgba(251,247,240,0.95);
+  border-bottom: 1px solid var(--border);
   padding: 14px 0;
 }
 
-/* container plus fin dans la barre sticky */
-.header-nav .container{
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-/* 3 zones */
 .header-bar{
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -240,148 +192,54 @@ li{ margin: 0.35rem 0; }
   gap: 24px;
 }
 
-.brand{
-  justify-self: start;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
 .nav{
-  justify-self: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 30px;
-  flex-wrap: nowrap;
 }
 
-.right{
-  justify-self: end;
+.nav-link{
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
 }
+.nav-link:hover{ border-bottom-color: var(--text); }
+.nav-link.active{ border-bottom: 2px solid var(--text); }
 
-/* Typo brand */
-.brand-name{
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-/* Couleurs dans la barre sticky */
-.header-nav .brand-name{
-  color: var(--accent2)
-}
-
-.header-nav .nav-link{
-  color: var(--text);
-}
-
-
-
-.header-nav .nav-link:hover{
-  border-bottom-color: var(--text);
-}
-
-.header-nav .nav-link.active{
-  border-bottom-color: var(--text);
-}
-
-/* Mobile header */
-@media (max-width: 900px){
-  .header-bar{
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 12px;
-  }
-  .nav{
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-  .right{
-    justify-self: center;
-  }
-}
-
-/* Footer bande de contact */
+/* Footer */
 .footer-band{
-  background: rgba(251, 247, 240, 0.95); /* même ton que ta barre */
+  background: rgba(251,247,240,0.95);
   border-top: 1px solid var(--border);
 }
 
 .footer-inner{
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding: 14px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 18px;
   flex-wrap: wrap;
-}
-
-/* même rendu que le header : on réutilise nav-link */
-.footer-band .nav-link{
-  color: var(--text);
-  border-bottom-color: transparent;
-}
-
-.footer-band .nav-link:hover{
-  border-bottom-color: var(--text);
-}
-
-.footer-band .nav-link.active{
-  border-bottom-color: var(--text);
-}
-
-/* séparateurs */
-.footer-sep{
-  width: 1px;
-  height: 18px;
-  background: rgba(31,26,23,0.25);
 }
 
 .footer-copy{
   font-size: 0.95rem;
   color: var(--muted);
-  white-space: nowrap;
 }
 
-.cv-page .card{
-  background: transparent;
-  box-shadow: none;
-  border: none;
-  padding: 0;
-}
-
-.cv-page .pdf-frame{
-  background: rgba(255,255,255,0.3);
-  backdrop-filter: blur(4px);
-}
-
-/* =========================
-   Travaux - blocs dépliables
-   ========================= */
-/* Bloc details */
-
+/* Travaux */
 .work-item{
   border-bottom: 1px solid var(--border);
   padding: 18px 0;
 }
 
 .work-title{
-  font-family: inherit;          /* même police que À propos */
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
   cursor: pointer;
-
   display: flex;
-  align-items: center;
   gap: 14px;
-
-  transition: color .25s ease;
 }
 
-/* Losange vert */
 .work-title::before{
   content: "";
   width: 14px;
@@ -391,70 +249,13 @@ li{ margin: 0.35rem 0; }
   transition: transform .3s ease;
 }
 
-/* Rotation quand ouvert */
 details[open] .work-title::before{
   transform: rotate(45deg);
 }
 
-/* Hover subtil */
-.work-title:hover{
-  color: #096a09;
-}
-
-/* Contenu */
 .work-content{
   margin-top: 14px;
-  font-family: inherit;
-  font-size: 1rem;
   line-height: 1.75;
-  animation: fadeSlide .25s ease;
-}
-
-@keyframes fadeSlide{
-  from{
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Grille 2 images */
-.work-figure-grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  margin: 30px 0;
-}
-
-/* Chaque bloc image */
-.work-figure-item{
-  background: transparent;   /* important */
-}
-
-/* Image */
-.work-figure-item img{
-  width: 100%;
-  display: block;            /* supprime l’espace blanc sous l’image */
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadowSoft);
-}
-
-/* Légende */
-.work-figure-item figcaption{
-  margin-top: 10px;
-  font-size: 0.95rem;
-  color: var(--muted);
-  text-align: center;
-}
-
-/* Image dans section travaux */
-.work-figure{
-  margin: 28px 0;
-  text-align: center;
 }
 
 .work-figure img{
@@ -465,34 +266,11 @@ details[open] .work-title::before{
   box-shadow: var(--shadowSoft);
 }
 
-.work-figure figcaption{
-  margin-top: 10px;
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.5;
-}
-a{
-  color: var(--link);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  transition: color .2s ease, border-color .2s ease;
-}
-
-a:hover{
-  color: var(--linkHover);
-  border-bottom-color: currentColor;
-}
-
 .lang-switch{
   font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
   opacity: 0.75;
   text-decoration: none;
-  border-bottom: none;
-  transition: opacity .2s ease;
 }
-
 .lang-switch:hover{
   opacity: 1;
 }

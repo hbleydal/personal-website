@@ -2,6 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
 ---
 
 <BaseLayout title="About" lang="en">
@@ -22,7 +26,7 @@ import Footer from "../../components/Footer.astro";
     </p>
 
     <p>
-      My <a href="/en/work"><strong>main contributions</strong></a> include:
+      My <a href={`${base}en/work/`}><strong>main contributions</strong></a> include:
     </p>
 
     <ul>
@@ -57,4 +61,3 @@ import Footer from "../../components/Footer.astro";
 
   <Footer lang="en" />
 </BaseLayout>
-
